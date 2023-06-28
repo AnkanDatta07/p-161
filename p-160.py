@@ -35,16 +35,16 @@ def openFile():
     global name
     note_text.delete(1.0, END)
     file_input.delete(0, END)
-    text_file = filedialog.askopenfilename(title = "Open text file", filetypes = (("Text file", "*.html"), ))
-    print(text_file)
+    html_file = filedialog.askopenfilename(title = "Open text file", filetypes = (("HTML file", "*.html"), ))
+    print(html_file)
     name = os.path.basename(text_file)
     formated_name = name.split('.')[0]
     file_input.insert(END, formated_name)
     root.title(formated_name)
-    text_file = open(name, 'r')
+    html_file = open(name, 'r')
     paragraph = text_file.read
     note_text.insert(END, paragraph)
-    text_file.close
+    html_file.close
     
 button1 = Button(root, text = "Open File", image = open_image, command = openFile)
 button1.place(relx = 0.03, rely = 0.01)
